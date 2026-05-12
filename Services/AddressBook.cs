@@ -35,39 +35,38 @@ public class AddressBook
 
         contacts.Add(person);
 
-        Console.WriteLine("Contact Added Successfully");
+        Console.WriteLine("\nContact Added Successfully\n");
     }
+
+    public void DisplayContacts()
+    {
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+            Console.WriteLine("--------------------------");
+        }
+    }
+
     public void EditContact(string firstName)
     {
         foreach (Contact person in contacts)
         {
             if (person.FirstName == firstName)
             {
-                Console.Write("Enter New Address: ");
-                person.Address = Console.ReadLine();
-
                 Console.Write("Enter New City: ");
                 person.City = Console.ReadLine();
 
                 Console.Write("Enter New State: ");
                 person.State = Console.ReadLine();
 
-                Console.Write("Enter New Zip: ");
-                person.Zip = Convert.ToInt32(Console.ReadLine());
-
-                Console.Write("Enter New Phone Number: ");
-                person.PhoneNumber = Console.ReadLine();
-
-                Console.Write("Enter New Email: ");
-                person.Email = Console.ReadLine();
-
-                Console.WriteLine("Contact Updated Successfully");
+                Console.WriteLine("Contact Updated");
                 return;
             }
         }
 
         Console.WriteLine("Contact Not Found");
     }
+
     public void DeleteContact(string firstName)
     {
         Contact deleteContact = null;
@@ -84,7 +83,7 @@ public class AddressBook
         if (deleteContact != null)
         {
             contacts.Remove(deleteContact);
-            Console.WriteLine("Contact Deleted Successfully");
+            Console.WriteLine("Contact Deleted");
         }
         else
         {
