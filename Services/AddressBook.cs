@@ -37,4 +37,35 @@ public class AddressBook
 
         Console.WriteLine("Contact Added Successfully");
     }
+    public void EditContact(string firstName)
+    {
+        foreach (Contact person in contacts)
+        {
+            if (person.FirstName == firstName)
+            {
+                Console.Write("Enter New Address: ");
+                person.Address = Console.ReadLine();
+
+                Console.Write("Enter New City: ");
+                person.City = Console.ReadLine();
+
+                Console.Write("Enter New State: ");
+                person.State = Console.ReadLine();
+
+                Console.Write("Enter New Zip: ");
+                person.Zip = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Enter New Phone Number: ");
+                person.PhoneNumber = Console.ReadLine();
+
+                Console.Write("Enter New Email: ");
+                person.Email = Console.ReadLine();
+
+                Console.WriteLine("Contact Updated Successfully");
+                return;
+            }
+        }
+
+        Console.WriteLine("Contact Not Found");
+    }
 }
