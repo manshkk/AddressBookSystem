@@ -10,9 +10,9 @@ class Program
 
         addressBook.AddContact();
 
-        Console.Write("Enter First Name to Edit: ");
+        Console.Write("Enter First Name to Delete: ");
         string name = Console.ReadLine();
 
-        addressBook.EditContact(name);
+        addressBook.DeleteContact(name);
     }
 }

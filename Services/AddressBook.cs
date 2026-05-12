@@ -68,4 +68,27 @@ public class AddressBook
 
         Console.WriteLine("Contact Not Found");
     }
+    public void DeleteContact(string firstName)
+    {
+        Contact deleteContact = null;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.FirstName == firstName)
+            {
+                deleteContact = person;
+                break;
+            }
+        }
+
+        if (deleteContact != null)
+        {
+            contacts.Remove(deleteContact);
+            Console.WriteLine("Contact Deleted Successfully");
+        }
+        else
+        {
+            Console.WriteLine("Contact Not Found");
+        }
+    }
 }
