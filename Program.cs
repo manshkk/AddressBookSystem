@@ -8,11 +8,19 @@ class Program
 
         AddressBook addressBook = new AddressBook();
 
-        addressBook.AddContact();
+        char choice;
 
-        Console.Write("Enter First Name to Delete: ");
-        string name = Console.ReadLine();
+        do
+        {
+            addressBook.AddContact();
 
-        addressBook.DeleteContact(name);
+            Console.Write("Do you want to add another contact? (y/n): ");
+            choice = Convert.ToChar(Console.ReadLine());
+
+        } while (choice == 'y' || choice == 'Y');
+
+        Console.WriteLine("\nAll Contacts:\n");
+
+        addressBook.DisplayContacts();
     }
 }
