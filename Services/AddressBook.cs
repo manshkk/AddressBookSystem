@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class AddressBook
 {
@@ -231,5 +232,33 @@ public class AddressBook
         {
             Console.WriteLine(person);
         }
+    }
+    public void WriteToFile()
+    {
+        string path = @"Data\addressbook.txt";
+
+        StreamWriter writer = new StreamWriter(path);
+
+        foreach (Contact person in contacts)
+        {
+            writer.WriteLine(person);
+            writer.WriteLine("--------------------");
+        }
+
+        writer.Close();
+
+        Console.WriteLine("Contacts Written To File");
+    }
+    public void ReadFromFile()
+    {
+        string path = @"Data\addressbook.txt";
+
+        StreamReader reader = new StreamReader(path);
+
+        string data = reader.ReadToEnd();
+
+        Console.WriteLine(data);
+
+        reader.Close();
     }
 }

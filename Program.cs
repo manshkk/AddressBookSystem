@@ -47,5 +47,11 @@ class Program
         addressBook.SortByCity();
         addressBook.SortByState();
         addressBook.SortByZip();
+
+        addressBook.WriteToFile();
+
+        Console.WriteLine("\nReading From File:\n");
+
+        addressBook.ReadFromFile();
     }
 }
