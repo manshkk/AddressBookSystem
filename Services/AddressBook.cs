@@ -99,4 +99,40 @@ public class AddressBook
             Console.WriteLine("Contact Not Found");
         }
     }
+    public void SearchByCity(string city)
+    {
+        bool found = false;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.City == city)
+            {
+                Console.WriteLine(person);
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No Contact Found");
+        }
+    }
+    public void SearchByState(string state)
+    {
+        bool found = false;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.State == state)
+            {
+                Console.WriteLine(person);
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No Contact Found");
+        }
+    }
 }
