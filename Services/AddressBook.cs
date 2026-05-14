@@ -261,4 +261,25 @@ public class AddressBook
 
         reader.Close();
     }
+    public void WriteToCSV()
+    {
+        string path = @"Data\addressbook.csv";
+
+        StreamWriter writer = new StreamWriter(path);
+
+        writer.WriteLine("FirstName,LastName,City,State");
+
+        foreach (Contact person in contacts)
+        {
+            writer.WriteLine(
+                person.FirstName + "," +
+                person.LastName + "," +
+                person.City + "," +
+                person.State);
+        }
+
+        writer.Close();
+
+        Console.WriteLine("CSV File Created");
+    }
 }

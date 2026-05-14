@@ -53,5 +53,7 @@ class Program
         Console.WriteLine("\nReading From File:\n");
 
         addressBook.ReadFromFile();
+
+        addressBook.WriteToCSV();
     }
 }
