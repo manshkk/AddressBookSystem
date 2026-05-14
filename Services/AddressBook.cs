@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using System.Text.Json;
 
 public class AddressBook
 {
@@ -281,5 +282,25 @@ public class AddressBook
         writer.Close();
 
         Console.WriteLine("CSV File Created");
+    }
+    public void WriteToJSON()
+    {
+        string path = @"Data\addressbook.json";
+
+        string jsonData =
+            JsonSerializer.Serialize(contacts);
+
+        File.WriteAllText(path, jsonData);
+
+        Console.WriteLine("JSON File Created");
+    }
+    public void ReadFromJSON()
+    {
+        string path = @"Data\addressbook.json";
+
+        string jsonData =
+            File.ReadAllText(path);
+
+        Console.WriteLine(jsonData);
     }
 }
