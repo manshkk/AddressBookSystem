@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 
 public class AddressBook
 {
@@ -98,5 +99,187 @@ public class AddressBook
         {
             Console.WriteLine("Contact Not Found");
         }
+    }
+    public void SearchByCity(string city)
+    {
+        bool found = false;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.City == city)
+            {
+                Console.WriteLine(person);
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No Contact Found");
+        }
+    }
+    public void SearchByState(string state)
+    {
+        bool found = false;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.State == state)
+            {
+                Console.WriteLine(person);
+                found = true;
+            }
+        }
+
+        if (!found)
+        {
+            Console.WriteLine("No Contact Found");
+        }
+    }
+    public void ViewByCity()
+    {
+        Dictionary<string, List<Contact>> cityDictionary =
+            new Dictionary<string, List<Contact>>();
+
+        foreach (Contact person in contacts)
+        {
+            if (!cityDictionary.ContainsKey(person.City))
+            {
+                cityDictionary[person.City] =
+                    new List<Contact>();
+            }
+
+            cityDictionary[person.City].Add(person);
+        }
+
+        foreach (var city in cityDictionary)
+        {
+            Console.WriteLine("\nCity: " + city.Key);
+
+            foreach (Contact person in city.Value)
+            {
+                Console.WriteLine(person.FirstName);
+            }
+        }
+    }
+    public void CountByCity(string city)
+    {
+        int count = 0;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.City == city)
+            {
+                count++;
+            }
+        }
+
+        Console.WriteLine("Total Contacts in " +
+                          city + " : " + count);
+    }
+    public void SortByName()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.FirstName.CompareTo(c2.FirstName);
+        });
+
+        Console.WriteLine("\nContacts Sorted By Name:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void SortByCity()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.City.CompareTo(c2.City);
+        });
+
+        Console.WriteLine("\nSorted By City:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void SortByState()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.State.CompareTo(c2.State);
+        });
+
+        Console.WriteLine("\nSorted By State:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void SortByZip()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.Zip.CompareTo(c2.Zip);
+        });
+
+        Console.WriteLine("\nSorted By Zip:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void WriteToFile()
+    {
+        string path = @"Data\addressbook.txt";
+
+        StreamWriter writer = new StreamWriter(path);
+
+        foreach (Contact person in contacts)
+        {
+            writer.WriteLine(person);
+            writer.WriteLine("--------------------");
+        }
+
+        writer.Close();
+
+        Console.WriteLine("Contacts Written To File");
+    }
+    public void ReadFromFile()
+    {
+        string path = @"Data\addressbook.txt";
+
+        StreamReader reader = new StreamReader(path);
+
+        string data = reader.ReadToEnd();
+
+        Console.WriteLine(data);
+
+        reader.Close();
+    }
+    public void WriteToCSV()
+    {
+        string path = @"Data\addressbook.csv";
+
+        StreamWriter writer = new StreamWriter(path);
+
+        writer.WriteLine("FirstName,LastName,City,State");
+
+        foreach (Contact person in contacts)
+        {
+            writer.WriteLine(
+                person.FirstName + "," +
+                person.LastName + "," +
+                person.City + "," +
+                person.State);
+        }
+
+        writer.Close();
+
+        Console.WriteLine("CSV File Created");
     }
 }
