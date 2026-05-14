@@ -11,7 +11,7 @@ class Program
             new Dictionary<string, AddressBook>();
 
         Console.Write("Enter Address Book Name: ");
-        string bookName = Console.ReadLine();
+        string bookName = Console.ReadLine()!;
 
         AddressBook addressBook = new AddressBook();
 
@@ -22,35 +22,39 @@ class Program
             addressBook.AddContact();
 
             Console.Write("Add More Contact? (y/n): ");
-            choice = Convert.ToChar(Console.ReadLine());
+            choice = Convert.ToChar(Console.ReadLine()!);
 
         } while (choice == 'y' || choice == 'Y');
 
         addressBooks.Add(bookName, addressBook);
 
-        Console.WriteLine("\nContacts Added Successfully\n");
+        Console.WriteLine("\nAll Contacts:\n");
 
         addressBook.DisplayContacts();
 
-        Console.Write("\nEnter City to Search: ");
-        string city = Console.ReadLine();
+        Console.Write("\nEnter City To Search: ");
+        string city = Console.ReadLine()!;
 
         addressBook.SearchByCity(city);
 
-        Console.Write("\nEnter City to Count Contacts: ");
-        string cityName = Console.ReadLine();
+        Console.Write("\nEnter City To Count Contacts: ");
+        string countCity = Console.ReadLine()!;
 
-        addressBook.CountByCity(cityName);
+        addressBook.CountByCity(countCity);
+
+        addressBook.ViewByCity();
 
         addressBook.SortByName();
 
         addressBook.SortByCity();
+
         addressBook.SortByState();
+
         addressBook.SortByZip();
 
         addressBook.WriteToFile();
 
-        Console.WriteLine("\nReading From File:\n");
+        Console.WriteLine("\nReading TXT File:\n");
 
         addressBook.ReadFromFile();
 

@@ -1,0 +1,8 @@
+Name: manish kuamr
+Address: rama
+City: chennai
+State: tamil
+Zip: 2379
+Phone: 43618903749
+Email: manish@gmail.com
+----------------------
