@@ -55,5 +55,11 @@ class Program
         addressBook.ReadFromFile();
 
         addressBook.WriteToCSV();
+
+        addressBook.WriteToJSON();
+
+        Console.WriteLine("\nReading JSON File:\n");
+
+        addressBook.ReadFromJSON();
     }
 }
