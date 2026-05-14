@@ -43,5 +43,9 @@ class Program
         addressBook.CountByCity(cityName);
 
         addressBook.SortByName();
+
+        addressBook.SortByCity();
+        addressBook.SortByState();
+        addressBook.SortByZip();
     }
 }

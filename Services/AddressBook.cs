@@ -190,4 +190,46 @@ public class AddressBook
             Console.WriteLine(person);
         }
     }
+    public void SortByCity()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.City.CompareTo(c2.City);
+        });
+
+        Console.WriteLine("\nSorted By City:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void SortByState()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.State.CompareTo(c2.State);
+        });
+
+        Console.WriteLine("\nSorted By State:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
+    public void SortByZip()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.Zip.CompareTo(c2.Zip);
+        });
+
+        Console.WriteLine("\nSorted By Zip:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
 }
