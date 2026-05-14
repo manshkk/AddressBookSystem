@@ -135,4 +135,30 @@ public class AddressBook
             Console.WriteLine("No Contact Found");
         }
     }
+    public void ViewByCity()
+    {
+        Dictionary<string, List<Contact>> cityDictionary =
+            new Dictionary<string, List<Contact>>();
+
+        foreach (Contact person in contacts)
+        {
+            if (!cityDictionary.ContainsKey(person.City))
+            {
+                cityDictionary[person.City] =
+                    new List<Contact>();
+            }
+
+            cityDictionary[person.City].Add(person);
+        }
+
+        foreach (var city in cityDictionary)
+        {
+            Console.WriteLine("\nCity: " + city.Key);
+
+            foreach (Contact person in city.Value)
+            {
+                Console.WriteLine(person.FirstName);
+            }
+        }
+    }
 }
