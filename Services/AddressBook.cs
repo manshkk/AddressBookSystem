@@ -33,6 +33,15 @@ public class AddressBook
         Console.Write("Enter Email: ");
         person.Email = Console.ReadLine();
 
+        foreach (Contact contact in contacts)
+        {
+            if (contact.FirstName == person.FirstName)
+            {
+                Console.WriteLine("Duplicate Contact Found");
+                return;
+            }
+        }
+
         contacts.Add(person);
 
         Console.WriteLine("\nContact Added Successfully\n");
