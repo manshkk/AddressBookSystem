@@ -36,5 +36,10 @@ class Program
         string city = Console.ReadLine();
 
         addressBook.SearchByCity(city);
+
+        Console.Write("\nEnter City to Count Contacts: ");
+        string cityName = Console.ReadLine();
+
+        addressBook.CountByCity(cityName);
     }
 }

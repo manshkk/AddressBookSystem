@@ -161,4 +161,19 @@ public class AddressBook
             }
         }
     }
+    public void CountByCity(string city)
+    {
+        int count = 0;
+
+        foreach (Contact person in contacts)
+        {
+            if (person.City == city)
+            {
+                count++;
+            }
+        }
+
+        Console.WriteLine("Total Contacts in " +
+                          city + " : " + count);
+    }
 }
