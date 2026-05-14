@@ -176,4 +176,18 @@ public class AddressBook
         Console.WriteLine("Total Contacts in " +
                           city + " : " + count);
     }
+    public void SortByName()
+    {
+        contacts.Sort(delegate (Contact c1, Contact c2)
+        {
+            return c1.FirstName.CompareTo(c2.FirstName);
+        });
+
+        Console.WriteLine("\nContacts Sorted By Name:\n");
+
+        foreach (Contact person in contacts)
+        {
+            Console.WriteLine(person);
+        }
+    }
 }

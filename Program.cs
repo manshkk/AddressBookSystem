@@ -41,5 +41,7 @@ class Program
         string cityName = Console.ReadLine();
 
         addressBook.CountByCity(cityName);
+
+        addressBook.SortByName();
     }
 }
