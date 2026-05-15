@@ -351,4 +351,35 @@ public class AddressBook
 
         Console.WriteLine(jsonData);
     }
+
+    public void AddContactForTest(Contact person)
+    {
+        foreach (Contact contact in contacts)
+        {
+            if (contact.FirstName == person.FirstName)
+            {
+                return;
+            }
+        }
+
+        contacts.Add(person);
+    }
+
+    public int GetContactCount()
+    {
+        return contacts.Count;
+    }
+
+    public bool SearchContact(string firstName)
+    {
+        foreach (Contact person in contacts)
+        {
+            if (person.FirstName == firstName)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
 }
