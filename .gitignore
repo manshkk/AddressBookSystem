@@ -1,3 +1,4 @@
-.vs/
+TestResults/
+*.trx
 bin/
 obj/
