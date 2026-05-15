@@ -2,3 +2,5 @@ TestResults/
 *.trx
 bin/
 obj/
+TestResults/
+*.trx
